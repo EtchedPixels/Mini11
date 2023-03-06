@@ -15,11 +15,9 @@ loadsd: loadsd.obj
 
 mkmini11: mkmini11.c
 
-miniboot.burn: mkmini11
+miniboot.burn: mkmini11 miniboot.rom
 	./mkmini11 <miniboot.rom >miniboot.burn
 
 clean:
 	rm -f miniboot.rom miniboot.burn miniboot.tmp
 	rm -f *~ *.obj mkmini11 loadsd
-
-
