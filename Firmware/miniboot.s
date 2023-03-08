@@ -7,6 +7,7 @@ SPDR	EQU	$2A
 PDDR	EQU	$08
 DDRD	EQU	$09
 TMSK2	EQU	$24
+PACTL	EQU	$26
 
 BAUD	EQU	$2B
 SCCR1	EQU	$2C
@@ -43,9 +44,11 @@ START:
 	ORAA    #3
 	STAA	$24,X
 	;	Set up the memory
-	;	Ensure we are in ram bank 0, ROMEN
+	;	Ensure we are in ram bank 0, ROMEN, CS1 high
 	;	regardless of any surprises at reset
-	CLR	PORTA,X
+	LDAA	#$80
+	STAA	PORTA,X
+	BSET	PACTL,X $80
 	LDAA	#$13
 	STAA	$39,X	;COP slow, DLY still on
 	SEI
@@ -281,7 +284,7 @@ STOPB:	BRA	STOPB
 INIT:
 	FCC	'Mini11 68HC11 System, (C) 2019-2023 Alan Cox'
 	FCB	13,10
-	FCC	'Firmware revision: 0.1'
+	FCC	'Firmware revision: 0.1.1'
 	FCB	13,10,13,10
 	FCC	'MC68HC11 config register '
 	FCB	0
