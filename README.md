@@ -119,7 +119,7 @@ Fit the jumper to set MODB low
 
 ### JP3: ROM Select
 
-Select back on 27C256, set to 5V with a 28C256
+Select bank on 27C256, set to 5V with a 28C256
 
 ## Software
 
