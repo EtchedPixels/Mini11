@@ -74,7 +74,7 @@ single chip mode and use db11 to change the config byte to 0x0C or similar.
 
 The internal EEROM has protection options and some devices wih custom
 firmware will set them. These can still be used as they will erase the
-EEPROM when the serial boot is triggered. This will put 0F into thhe CONFIG
+EEPROM when the serial boot is triggered. This will put 0F into the CONFIG
 register so that will also then need reprogramming.
 
 ### Did You Remember D0/D2 Are Swapped In Your ROM Image
